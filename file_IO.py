@@ -1,0 +1,5 @@
+f_name=open("tudedude.txt" , "x")
+f_name.write("This is the first line\nOne more line to test")
+f_name=open("tudedude.txt")
+print(f_name.read())
+f_name.close()

@@ -15,9 +15,7 @@ collection = db["flask-tutorial"]
 # Define the home route  
 @app.route("/")
 def home():
-   return render_template("to_do.html")
-
-"""
+   return render_template("index.html")
 # Define the register route
 @app.route("/register", methods=['POST'])
 def register():
@@ -27,13 +25,13 @@ def register():
     collection.insert_one({"name": name, "password": pwd})
     return ("Data submitted successfully!")
 
-"""
 @app.route("/submittodoitem", methods=['POST'])
 def submittodoitem():
     # Get the data from the form
     item_name = request.form.get('item_name')
     item_desc= request.form.get('item_desc')
-    collection.insert_one({"name": item_name, "description": item_desc})
+    todoitem = {"name": item_name, "description": item_desc}
+    collection.insert_one({"todoitem": todoitem})
     return ("Todo item submitted successfully!")
 
 if __name__ == "__main__" :

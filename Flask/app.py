@@ -33,7 +33,10 @@ def submittodoitem():
     # Get the data from the form
     item_name = request.form.get('item_name')
     item_desc= request.form.get('item_desc')
-    collection.insert_one({"name": item_name, "description": item_desc})
+    item_id = request.form.get('item_id')
+    item_uuid = request.form.get('item_uuid')
+    item_hash = request.form.get('item_hash')
+    collection.insert_one({"name": item_name, "description": item_desc,"item_id": item_id, "item_uuid": item_uuid, "item_hash": item_hash})
     return ("Todo item submitted successfully!")
 
 if __name__ == "__main__" :
